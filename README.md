@@ -1,61 +1,56 @@
 # Alaska Election Shapefile
-This shapefile was processed by members of the Voting Rights Data Institute. The Voting Rights Data Institute (VRDI) was a 2018 summer intensive sponsored by the Metric Geometry and Gerrymandering Group (MGGG) at Tufts and MIT, with major support from a Bose Research Grant at MIT and from the Jonathon M. Tisch College of Civic Life at Tufts.
+This shapefile was obtained from the Alaska Division of Elections and processed by members of the Metric Geometry and Gerrymandering Group (MGGG). 
 
 ## Sources
-The raw, unprocessed version of this shapefile was retrieved from the Alaska Division of Elections (available for download from http://www.elections.alaska.gov/Core/districtmaps.php). It was joined with a 2013 county shapefile from the US Census Bureau (https://catalog.data.gov/dataset/tiger-line-shapefile-2013-state-alaska-current-county-subdivision-state-based) and the 2013 Alaska statewide house district shapefile (from http://www.elections.alaska.gov/Core/districtmaps.php). Data for 2016 presidential and state house elections was scraped from http://www.elections.alaska.gov/results/16GENR/data/resultsbyprct.txt. Demographic data comes from the US Census Bureau.
+The precinct shapefile and election results were downloaded from the Alaska Division of Elections website (http://www.elections.alaska.gov/Core/electionresources.php). Demographic data was downloaded from the 2010 Decennial Census at the census block level from IPUMS NHGIS (https://www.nhgis.org).
 
 ## Processing
-Demographic data for precincts was created by summing data from each census block with centroids in the precinct. Proration (available from https://github.com/gerrymandr/Preprocessing) was used to build vote totals from voting tabulation districts (VTDs).
+Election data from the Alaska Division of Elections was cleaned and converted to a CSV by MGGG staff so it could be joined to the precinct shapefile. Demographic data was aggregated from the block level to the precinct level using MGGG’s proration and roundoff tools (available here https://github.com/gerrymandr/Preprocessing). Roundoff was used to assign Alaska house districts to precincts.
 
 ## Metadata
-- `AREA_x`: Area of precinct
-- `DISTRICT`: Precinct code
-- `NAME`: Precinct name and code
-- `POPULATION`: Total population from 2010 Census
-- `IDEAL_VALU`: True population 
-- `DEVIATION_`: Deviation from true population
-- `F_DEVIATIO`: Deviation from F statistic
-- `Name_1`: Precinct name
-- `District_1`: Alaska State Assembly district
-- `D-Pres Vot`: Prorated vote totals for Democratic Party in 2016 presidential election
-- `R-Pres Vot`: Prorated vote totals for Republican Party in 2016 presidential election
-- `TP-Pres Vo`: Prorated vote totals for Third Parties in 2016 presidential election
-- `D-Dist Vot`: Prorated vote totals for Democratic Party in 2016 assembly district election
-- `R-Dist Vot`: Prorated vote totals for Republican Party in 2016 assembly district election
-- `Contested`: D if race between 2+ Democrats, R if race between 2+ Republicans, B if two parties in contest
-- `sumTOTALPO`: Sum of total number of people in each 2010 census block
-- `sumWHITE`: Sum of total number of people in each 2010 census block who are White alone
-- `sumBLACK`: Sum of total number of people in each 2010 census block who are Black/African American alone
-- `sumNATIVE`: Sum of total number of people in each 2010 census block who are American Indians/Alaska Native alone
-- `sumASIAN`: Sum of total number of people in each 2010 census block who are Asian alone
-- `sumPACISLA`: Sum of total number of people in each 2010 census block who are Native Hawaiian or Pacific Islander alone
-- `sumOTHER`: Sum of total number of people in each 2010 census block who are another race alone
-- `sumTWO_PLU`: Sum of total number of people in each 2010 census block who are two or more races
-- `sumHISPANI`: Sum of total number of people in each 2010 census block who are of Hispanic origin
-- `sumNATALNC`: Sum of total number of people in each 2010 census block who are American Indians/Alaska Native alone or in combination
-- `sumMALE`: Sum of total number of people in each 2010 census block who are male
-- `sumFEMALE`: Sum of total number of people in each 2010 census block who are female
-- `sumGRPQTRS`: Sum of total number of people in each 2010 census block who live in group quarters
-- `sumHOUSEUN`: Sum of total number of housing units in each 2010 census block 
-- `sumVACANT`: Sum of total number of vacant housing units in each 2010 census block
-- `sumOCCUPIE`: Sum of total number of occupied housing units in each 2010 census block
-- `sumOWNED`: Sum of total number of occupied housing units that are owned by tenant in each 2010 census block
-- `sumRENTED`: Sum of total number of occupied housing units that are rented by tenant in each 2010 census block
-- `County`: Name of county that precinct is in
-- `Incumbent`: 1 if there was an incumbent Democrat in 2016 AK house race, 0 if not
-- `Incumben_1`: 1 if there was an incumbent Republican in 2016 AK house race, 0 if not
-- `Winner`: D if winner of 2016 AK house race was Democrat, R if Republican, or I if Independent
-- `Reg. Voter`: Total number of voters registered within precinct
-- `Reg. D-Vot`: Total number of voters registered with Alaska Democratic Party within precinct
-- `Reg. R-Vot`: Total number of voters registered with Alaska Republican Party within precinct
-- `Reg. N-Vot`: Total number of voters registered as nonpartisan (no party affiliation) within precinct
-- `Reg. U-Vot`: Total number of voters registered as undeclared (no party declared) within precinct
-- `pr_D-Pres`: Percent of vote in precinct for 2016 Democratic presidential candidate
-- `pr_R-Pres`: Percent of vote in precinct for 2016 Republican presidential candidate
-- `pr_TP=Pres`: Percent of vote in precinct for 2016 third party presidential candidates
-- `pr_White`: Percent of population in precinct White
-- `pr_Native`: Percent of population in precinct American Indian/Alaska Native
-- `pop_dens`: Number of people per square mile
+* `ID`: Unique identifier
+* `AREA`: Area of precinct
+* `DISTRICT`: Precinct code
+* `NAME`: Precinct name and code
+* `POPULATION`: Total population in precinct
+* `USH14D`: Number of votes for 2014 Democratic house candidate
+* `USH14R`: Number of votes for 2014 Republican house candidate
+* `USH14L`: Number of votes for 2014 Libertarian house candidate
+* `PRES16D`: Number of votes for 2016 Democratic presidential candidate
+* `PRES16R`: Number of votes for 2016 Republican presidential candidate
+* `PRES16L`: Number of votes for 2016 Libertarian presidential candidate
+* `PRES16G`: Number of votes for 2016 Green Party presidential candidate
+* `PRES16C`: Number of votes for 2016 Constitution Party presidential candidate
+* `SEN16D`: Number of votes for 2016 Democratic senate candidate
+* `SEN16R`: Number of votes for 2016 Republican senate candidate
+* `SEN16L`: Number of votes for 2016 Libertarian senate candidate
+* `USH16D`: Number of votes for 2016 Democratic house candidate
+* `USH16R`: Number of votes for 2016 Republican house candidate
+* `USH16L`: Number of votes for 2016 Libertarian house candidate
+* `GOV18D`: Number of votes for 2018 Democratic gubernatorial candidate
+* `GOV18R`: Number of votes for 2018 Republican gubernatorial candidate
+* `GOV18L`: Number of votes for 2018 Libertarian gubernatorial candidate
+* `USH18D`: Number of votes for 2018 Democratic house candidate
+* `USH18R`: Number of votes for 2018 Republican house candidate
+* `TOTPOP`: Total population
+* `WHITE`: White population
+* `BLACK`: Black population
+* `AMIN`: American Indian and Alaska Native population
+* `ASIAN`: Asian population
+* `NHPI`: Native Hawaiian and Pacific Islander population
+* `2MORE`: Two or more races population
+* `VAP`: Total voting age population
+* `WVAP`: White voting age population
+* `BVAP`: Black voting age population
+* `AMINVAP`: American Indian and Alaska Native voting age population
+* `ASIANVAP`: Asian voting age population
+* `NHPIVAP`: Native Hawaiian and Pacific Islander voting age population
+* `OTHVAP`: Other race voting age population
+* `2MVAP`: Two or more voting age population
+* `HDIST``: AK house district
 
 ## Projection
-This shapefile uses a WGS 84 geographic coordinate system.
+This shapefile uses a NAD83/Alaska Albers projection or EPSG: 3338.
+
+## Rating
+We give this shapefile an A rating. All data was obtained from the state government and was processed by MGGG staff.
