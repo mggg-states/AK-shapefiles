@@ -47,7 +47,7 @@ Election data from the Alaska Division of Elections was cleaned and converted to
 * `NHPIVAP`: Native Hawaiian and Pacific Islander voting age population
 * `OTHVAP`: Other race voting age population
 * `2MVAP`: Two or more voting age population
-* `HDIST``: AK house district
+* `HDIST`: AK house district
 
 ## Projection
 This shapefile uses a NAD83/Alaska Albers projection or EPSG: 3338.
