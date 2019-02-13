@@ -46,7 +46,7 @@ Election data from the Alaska Division of Elections was cleaned and converted to
 * `ASIANVAP`: Asian voting age population
 * `NHPIVAP`: Native Hawaiian and Pacific Islander voting age population
 * `OTHVAP`: Other race voting age population
-* `2MVAP`: Two or more voting age population
+* `2MOREVAP`: Two or more voting age population
 * `HDIST`: AK house district
 
 ## Projection
