@@ -2,10 +2,10 @@
 This shapefile was obtained from the Alaska Division of Elections and processed by members of the Metric Geometry and Gerrymandering Group (MGGG). 
 
 ## Sources
-The precinct shapefile and election results were downloaded from the Alaska Division of Elections website (http://www.elections.alaska.gov/Core/electionresources.php). Demographic data was downloaded from the 2010 Decennial Census at the census block level from IPUMS NHGIS (https://www.nhgis.org).
+The precinct shapefile and election results were downloaded from the [Alaska Division of Elections website](http://www.elections.alaska.gov/Core/electionresources.php). Demographic data was downloaded from the 2010 Decennial Census at the census block level from [IPUMS NHGIS](https://www.nhgis.org).
 
 ## Processing
-Election data from the Alaska Division of Elections was cleaned and converted to a CSV by MGGG staff so it could be joined to the precinct shapefile. Demographic data was aggregated from the block level to the precinct level using MGGG’s proration and roundoff tools (available here https://github.com/gerrymandr/Preprocessing). Roundoff was used to assign Alaska house districts to precincts.
+Election data from the Alaska Division of Elections was cleaned and converted to a CSV by MGGG staff so it could be joined to the precinct shapefile. Demographic data was aggregated from the block level to the precinct level using [MGGG’s proration and roundoff tools](https://github.com/gerrymandr/Preprocessing). Roundoff was used to assign Alaska house districts to precincts.
 
 ## Metadata
 * `ID`: Unique identifier
